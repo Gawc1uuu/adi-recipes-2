@@ -6,11 +6,13 @@ import Signup from "./pages/signup/Signup";
 import Recipe from "./pages/recipe/Recipe";
 //styles
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/recipe" element={<Recipe />} />
