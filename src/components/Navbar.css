@@ -1,9 +1,24 @@
 .navbar {
-  background-color: #060b26;
+  background-color: #4c1626;
   height: 80px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
+}
+.navbar a.brand {
+  margin-right: auto;
+  margin-left: 4rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-family: "Kaushan Script", cursive;
+}
+.navbar a img.food-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 0px;
 }
 .menu-bars {
   margin-left: 2rem;
@@ -11,7 +26,7 @@
   background-color: none;
 }
 .nav-menu {
-  background-color: #060b26;
+  background-color: #4c1626;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -28,7 +43,7 @@
 .nav-text {
   list-style: none;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px 0px 8px 16px;
   height: 60px;
@@ -36,7 +51,7 @@
 .nav-text a {
   text-decoration: none;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color: #f5f5f5;
   font-size: 18px;
@@ -52,13 +67,25 @@
   width: 100%;
 }
 .navbar-toggle {
-  background-color: #060b26;
+  background-color: #4c1626;
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 span {
   margin-left: 16px;
+}
+.auth-links {
+  display: flex;
+  flex-grow: 0.3;
+  justify-content: space-around;
+}
+.auth-link {
+  text-decoration: none;
+  color: white;
+}
+.auth-link:hover {
+  text-decoration: underline;
 }
