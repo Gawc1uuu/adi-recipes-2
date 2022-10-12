@@ -43,6 +43,10 @@ const Navbar = () => {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
+            <li className="user">
+              <img />
+              Hey, user!
+            </li>
             {Sidebar.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
