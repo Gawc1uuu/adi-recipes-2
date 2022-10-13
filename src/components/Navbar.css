@@ -12,12 +12,12 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: 22px;
+  font-size: 16px;
   font-family: "Kaushan Script", cursive;
 }
 .navbar a img.food-icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-right: 0px;
 }
 .menu-bars {

@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 //styles
 
 const Login = () => {
+  const context = useAuthContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { Sidebar } from "./Sidebar";
 import { IconContext } from "react-icons";
 import spaghetti from "../assets/spaghetti.svg";
 
@@ -20,7 +19,7 @@ const Navbar = () => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
-            <FaIcons.FaBars size={25} onClick={showSidebar} />
+            <FaIcons.FaBars size={20} onClick={showSidebar} />
           </Link>
           <Link to="/" className="brand">
             <img src={spaghetti} className="food-icon" alt="food icon" />
@@ -40,23 +39,22 @@ const Navbar = () => {
           <ul onClick={showSidebar} className="nav-menu-items">
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
+                <AiIcons.AiOutlineClose size={20} />
               </Link>
             </li>
-            <li className="user">
-              <img />
-              Hey, user!
+            <li className="user">Hey, user!</li>
+            <li className="nav-text">
+              <Link to="/">
+                <AiIcons.AiFillHome />
+                <span>Home</span>
+              </Link>
             </li>
-            {Sidebar.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            <li className="nav-text">
+              <Link to="/create">
+                <AiIcons.AiOutlinePlus />
+                <span>Add Recipe</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
