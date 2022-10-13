@@ -96,9 +96,14 @@ span {
   background-color: white;
   border: 2px solid #4c1626;
   border-radius: 6px;
+  font-weight: bold;
 }
 .auth-button:hover {
   background-color: rgb(203, 203, 203);
+  cursor: pointer;
+}
+.auth-button:active {
+  background-color: white;
   cursor: pointer;
 }
 .user {
@@ -111,4 +116,10 @@ span {
   border-top: 1px solid white;
   color: white;
   margin: 0;
+}
+.user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  margin-right: 10px;
 }

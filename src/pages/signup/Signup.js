@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSignup } from "../../hooks/useSignup";
 //styles
 import "./Signup.css";
 
@@ -8,6 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const [avatarError, setAvatarError] = useState(null);
+  const { signup, isPending, error } = useSignup();
 
   const handleFileChange = (e) => {
     setAvatar(null);
@@ -30,7 +32,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, username, password, avatar);
+    signup(email, username, password, avatar);
   };
 
   return (

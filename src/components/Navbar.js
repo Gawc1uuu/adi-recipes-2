@@ -4,12 +4,20 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { IconContext } from "react-icons";
 import spaghetti from "../assets/spaghetti.svg";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 //styles
 import "./Navbar.css";
 
 const Navbar = () => {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
   const [sidebar, setSidebar] = useState(false);
+
+  const handleClick = (e) => {
+    logout();
+  };
 
   const showSidebar = () => {
     setSidebar(!sidebar);
@@ -32,7 +40,9 @@ const Navbar = () => {
             <Link to="/signup" className="auth-link">
               Sign up
             </Link>
-            <button className="auth-button">Logout</button>
+            <button onClick={handleClick} className="auth-button">
+              Logout
+            </button>
           </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
@@ -42,7 +52,12 @@ const Navbar = () => {
                 <AiIcons.AiOutlineClose size={20} />
               </Link>
             </li>
-            <li className="user">Hey, user!</li>
+            {user && (
+              <li className="user">
+                <img src={user.photoURL} alt="user avatar" />
+                Hey, {user.displayName}!
+              </li>
+            )}
             <li className="nav-text">
               <Link to="/">
                 <AiIcons.AiFillHome />
