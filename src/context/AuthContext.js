@@ -1,6 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useEffect, useReducer } from "react";
-import { AiFillContainer } from "react-icons/ai";
 import { auth } from "../firebase/config";
 
 export const AuthContext = createContext();
@@ -13,6 +12,8 @@ const authReducer = (state, action) => {
       return { ...state, user: action.payload };
     case "LOGOUT":
       return { ...state, user: null };
+    default:
+      return { ...state };
   }
 };
 

@@ -6,7 +6,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export const useSignup = () => {
   const { dispatch } = useAuthContext();
-  const [isPendning, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
   const signup = async (email, userName, password, photo) => {
@@ -45,5 +45,5 @@ export const useSignup = () => {
     }
   };
 
-  return { error, isPendning, signup };
+  return { error, isPending, signup };
 };

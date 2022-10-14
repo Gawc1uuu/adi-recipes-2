@@ -9,7 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const [avatarError, setAvatarError] = useState(null);
-  const { signup, isPending, error } = useSignup();
+  const { signup } = useSignup();
 
   const handleFileChange = (e) => {
     setAvatar(null);
