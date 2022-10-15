@@ -34,15 +34,21 @@ const Navbar = () => {
             <h1>Adi Cooking</h1>
           </Link>
           <div className="auth-links">
-            <Link to="/login" className="auth-link">
-              Login
-            </Link>
-            <Link to="/signup" className="auth-link">
-              Sign up
-            </Link>
-            <button onClick={handleClick} className="auth-button">
-              Logout
-            </button>
+            {!user && (
+              <>
+                <Link to="/login" className="auth-link">
+                  Login
+                </Link>
+                <Link to="/signup" className="auth-link">
+                  Sign up
+                </Link>
+              </>
+            )}
+            {user && (
+              <button onClick={handleClick} className="auth-button">
+                Logout
+              </button>
+            )}
           </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>

@@ -3,7 +3,7 @@ import { useLogin } from "../../hooks/useLogin";
 //styles
 
 const Login = () => {
-  const { login } = useLogin();
+  const { login, isPending, error } = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,7 +30,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button className="signup-button">Login</button>
+        {isPending && (
+          <button className="signup-button" disabled="true">
+            Loging in...
+          </button>
+        )}
+        {!isPending && <button className="signup-button">Login</button>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

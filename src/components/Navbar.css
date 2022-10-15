@@ -79,9 +79,10 @@ span {
 }
 .auth-links {
   display: flex;
-  flex-grow: 0.3;
+  flex-grow: 0.1;
   justify-content: space-around;
   align-items: center;
+  margin-right: 5rem;
 }
 .auth-link {
   text-decoration: none;

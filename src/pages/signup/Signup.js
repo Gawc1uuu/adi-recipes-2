@@ -9,7 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const [avatarError, setAvatarError] = useState(null);
-  const { signup } = useSignup();
+  const { signup, isPending, error } = useSignup();
 
   const handleFileChange = (e) => {
     setAvatar(null);
@@ -67,8 +67,14 @@ const Signup = () => {
           <span>Add an avatar</span>
           <input required type="file" onChange={handleFileChange} />
         </label>
-        <button className="signup-button">Sign up</button>
+        {isPending && (
+          <button className="signup-button" disabled={true}>
+            Signing up...
+          </button>
+        )}
+        {!isPending && <button className="signup-button">Sign up</button>}
         {avatarError && <p className="error">{avatarError}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

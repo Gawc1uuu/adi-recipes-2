@@ -1,0 +1,39 @@
+.add-form {
+  margin-top: 2rem;
+}
+.add-form label {
+  max-width: 700px;
+  margin: 20px auto;
+}
+.add-form label span {
+  font-weight: bold;
+}
+.add-form input,
+.add-form textarea {
+  width: 100%;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  height: 2rem;
+  outline: solid;
+  outline-color: #999;
+  outline-width: 2px;
+  border-radius: 5px;
+  border-bottom: none;
+}
+.add-form input:focus,
+.add-form textarea:focus {
+  outline: solid;
+  outline-color: #333;
+  outline-width: 2px;
+  border-radius: 5px;
+  border-bottom: none;
+}
+.button-holder {
+  text-align: center;
+}
+.add-form .signup-button {
+  max-width: 700px;
+}
+.add-form textarea {
+  height: 6rem;
+}
