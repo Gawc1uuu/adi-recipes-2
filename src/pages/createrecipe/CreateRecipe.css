@@ -16,7 +16,7 @@
   height: 2rem;
   outline: solid;
   outline-color: #999;
-  outline-width: 2px;
+  outline-width: 1px;
   border-radius: 5px;
   border-bottom: none;
 }
@@ -36,4 +36,27 @@
 }
 .add-form textarea {
   height: 6rem;
+}
+.add-form .ingredients-input {
+  display: flex;
+  align-items: center;
+}
+.add-form .ingredients-input button.auth-button {
+  margin-left: 20px;
+}
+.ings-list {
+  display: block;
+  margin: 0 auto;
+  max-width: 700px;
+  color: #555;
+}
+.ings-item {
+  margin-left: 3px;
+}
+.ings-item::after {
+  content: ",";
+}
+.ings-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
