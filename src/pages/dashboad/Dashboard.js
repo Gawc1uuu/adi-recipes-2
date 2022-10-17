@@ -1,10 +1,14 @@
+import RecipeList from "../../components/RecipeList";
+import { useCollection } from "../../hooks/useCollection";
 //styles
 import "./Dashboard.css";
 
-import React from "react";
-
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  const { data } = useCollection("recipes");
+
+  console.log(data);
+
+  return <>{data && <RecipeList data={data} />}</>;
 };
 
 export default Dashboard;

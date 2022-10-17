@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const CreateRecipe = () => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
-  const { addDocument } = useFirestore("recipes");
+  const { addDocument, error } = useFirestore("recipes");
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIng, setNewIng] = useState("");
@@ -36,6 +36,13 @@ const CreateRecipe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const createdBy = {
+      userName: user.displayName,
+      id: user.uid,
+      photoURL: user.photoURL,
+    };
+
     const recipe = {
       name,
       ingredients,
@@ -43,11 +50,16 @@ const CreateRecipe = () => {
       prepTime,
       comments: [],
       createdAt: serverTimestamp(),
-      createdBy: user.uid,
+      createdBy,
     };
 
-    addDocument(recipe);
-    navigate("/");
+    if (!error) {
+      addDocument(recipe);
+      navigate("/");
+      return;
+    } else {
+      console.log(error);
+    }
   };
 
   return (
