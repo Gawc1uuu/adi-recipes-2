@@ -31,7 +31,7 @@ const Login = () => {
           />
         </label>
         {isPending && (
-          <button className="signup-button" disabled="true">
+          <button className="signup-button" disabled={true}>
             Loging in...
           </button>
         )}

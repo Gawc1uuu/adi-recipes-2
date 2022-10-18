@@ -1,11 +1,13 @@
 //styles
 import "./Recipe.css";
-import deleteIcon from "../../assets/delete-icon.svg";
+import editIcon from "../../assets/edit-icon.svg";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Recipe = () => {
+  const { user } = useAuthContext();
   const { id } = useParams();
   const { document, error } = useDocument("recipes", id);
   console.log(document);
@@ -20,7 +22,11 @@ const Recipe = () => {
 
   return (
     <div className="recipe">
-      <img src={deleteIcon} alt="edit icon" className="edit-icon" />
+      {user && user.uid === document.createdBy.id && (
+        <Link to={`/recipes/${id}/edit`}>
+          <img src={editIcon} alt="edit icon" className="edit-icon" />
+        </Link>
+      )}
       <div className="header">
         <h2>{document.name}</h2>
         <em>created by: {document.createdBy.userName}</em>

@@ -8,6 +8,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 //styles
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Edit from "./pages/editpage/Edit";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -30,6 +31,10 @@ function App() {
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/recipes/:id/edit"
+              element={user ? <Edit /> : <Navigate to="/" />}
             />
           </Routes>
         </BrowserRouter>

@@ -30,6 +30,16 @@
   display: block;
   text-align: center;
 }
+.recipe .ingredients {
+  display: flex;
+  justify-content: center;
+}
+.recipe .ingredients li {
+  margin-left: 5px;
+}
+.recipe .ingredients li::after {
+  content: ",";
+}
 .recipe .edit-icon {
   position: absolute;
   top: 10px;
@@ -37,4 +47,8 @@
   width: 25px;
   height: 25px;
   filter: invert(50%);
+}
+.recipe .edit-icon:hover {
+  filter: invert(0%);
+  cursor: pointer;
 }

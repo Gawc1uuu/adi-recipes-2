@@ -39,6 +39,7 @@
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  /* position: absolute; */
 }
 .nav-text {
   list-style: none;
@@ -115,6 +116,8 @@ span {
   height: 100px;
   border-bottom: 1px solid white;
   border-top: 1px solid white;
+  border: 2px solid white;
+  border-radius: 6px;
   color: white;
   margin: 0;
 }
@@ -123,4 +126,8 @@ span {
   height: 30px;
   border-radius: 10px;
   margin-right: 10px;
+}
+.logout-img {
+  width: 10px;
+  height: 10px;
 }
