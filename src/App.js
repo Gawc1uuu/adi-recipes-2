@@ -18,7 +18,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/recipe" element={<Recipe />} />
+            <Route path="/recipes/:id" element={<Recipe />} />
             <Route
               path="/create"
               element={user ? <CreateRecipe /> : <Navigate to="/login" />}

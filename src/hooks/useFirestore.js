@@ -60,7 +60,7 @@ export const useFirestore = (col) => {
     dispatch({ type: "IS_PENDING" });
     try {
       const res = await addDoc(docRef, document);
-      console.log(res);
+      console.log(res, res.data().id);
       dispatch({ type: "ADD_DOC", payload: res });
     } catch (err) {
       dispatch({ type: "ERROR", payload: err.message });

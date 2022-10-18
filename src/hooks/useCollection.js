@@ -12,7 +12,7 @@ export const useCollection = (col) => {
       (snapshot) => {
         const result = [];
         snapshot.forEach((doc) => {
-          result.push(doc.data());
+          result.push({ ...doc.data(), id: doc.id });
         });
         setData(result);
       },
