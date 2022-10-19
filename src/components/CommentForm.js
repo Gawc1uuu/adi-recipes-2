@@ -16,16 +16,11 @@ const CommentForm = ({ recipe }) => {
   const addCommentHandler = async (e) => {
     e.preventDefault();
 
-    const createdBy = {
-      userName: user.userName,
-      photoURL: user.photoURL,
-      id: user.uid,
-    };
-
     const commentToAdd = {
       content: commentText,
       createdAt: Timestamp.fromDate(new Date()),
-      createdBy,
+      userName: user.displayName,
+      photoURL: user.photoURL,
       id: Math.random(),
     };
 
