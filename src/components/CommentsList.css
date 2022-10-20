@@ -1,0 +1,26 @@
+.comments {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+.comments .comment {
+  background-color: white;
+  min-width: 300px;
+  padding: 10px 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.146);
+  margin-bottom: 15px;
+}
+.comment img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.comment h5 {
+  font-weight: 500;
+  font-size: 16px;
+}
+.comment .comment-header {
+  display: flex;
+  align-items: center;
+}

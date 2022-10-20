@@ -1,6 +1,7 @@
 //styles
 import "./CommentForm.css";
 
+import ReactStars from "react-rating-stars-component";
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { arrayUnion, Timestamp } from "firebase/firestore";
@@ -8,10 +9,15 @@ import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useParams } from "react-router-dom";
 
-const CommentForm = ({ recipe }) => {
+const CommentForm = () => {
   const { id } = useParams();
   const { user } = useAuthContext();
   const [commentText, setCommentText] = useState("");
+  const [rating, setRating] = useState(5);
+
+  const ratingChanged = (newRating) => {
+    setRating(newRating);
+  };
 
   const addCommentHandler = async (e) => {
     e.preventDefault();
@@ -22,6 +28,7 @@ const CommentForm = ({ recipe }) => {
       userName: user.displayName,
       photoURL: user.photoURL,
       id: Math.random(),
+      rating: rating,
     };
 
     try {
@@ -32,10 +39,23 @@ const CommentForm = ({ recipe }) => {
     } catch (err) {
       console.log(err.message);
     }
+    setCommentText("");
+    setRating(5);
   };
 
   return (
     <form className="comment-form" onSubmit={addCommentHandler}>
+      <label>
+        <span>Rate recipe</span>
+        <ReactStars
+          count={5}
+          size={40}
+          onChange={ratingChanged}
+          activeColor="#ffd700"
+          isHalf={true}
+          value={5}
+        />
+      </label>
       <label>
         <textarea
           value={commentText}

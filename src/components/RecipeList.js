@@ -2,12 +2,14 @@
 import "./RecipeList.css";
 import deleteIcon from "../assets/delete-icon.svg";
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFirestore } from "../hooks/useFirestore";
+import CommentsList from "./CommentsList";
 
 const RecipeList = ({ data }) => {
   const { deleteDocument } = useFirestore("recipes");
+  const [avgRating, setAvgRating] = useState(0);
 
   const deleteHandler = (id) => {
     deleteDocument(id);

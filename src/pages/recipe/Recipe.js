@@ -41,7 +41,7 @@ const Recipe = () => {
         <p className="method">{document.method}</p>
         <p className="cooking-time">{document.prepTime} minutes to make.</p>
       </div>
-      <div>
+      <div className="recipe-comments">
         <CommentsList recipe={document} />
         <CommentForm recipe={document} />
       </div>
