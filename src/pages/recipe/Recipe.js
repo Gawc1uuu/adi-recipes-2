@@ -1,17 +1,28 @@
 //styles
 import "./Recipe.css";
 import editIcon from "../../assets/edit-icon.svg";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
 
+let ratingSum = 0;
+
 const Recipe = () => {
   const { user } = useAuthContext();
   const { id } = useParams();
   const { document, error } = useDocument("recipes", id);
+
+  useEffect(() => {
+    if (document) {
+      document.comments.forEach((comment) => {
+        ratingSum += comment.rating;
+      });
+      console.log(ratingSum);
+    }
+  }, [document]);
 
   if (error) {
     return <div className="error">{error}</div>;

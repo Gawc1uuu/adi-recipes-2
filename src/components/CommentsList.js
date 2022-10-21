@@ -11,9 +11,9 @@ const CommentsList = ({ recipe }) => {
       {recipe.comments.length !== 0 && (
         <ul className="comments">
           {recipe.comments.map((comment) => (
-            <li className="comment">
+            <li className="comment" key={comment.id}>
               <div className="comment-header">
-                <img src={comment.photoURL} alt="comment author photo" />
+                <img src={comment.photoURL} alt="comment author" />
                 <h5>{comment.userName}</h5>
               </div>
               <ReactStars

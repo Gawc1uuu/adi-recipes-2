@@ -2,14 +2,13 @@
 import "./RecipeList.css";
 import deleteIcon from "../assets/delete-icon.svg";
 
-import React, { useState } from "react";
+import ReactStars from "react-rating-stars-component";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useFirestore } from "../hooks/useFirestore";
-import CommentsList from "./CommentsList";
 
 const RecipeList = ({ data }) => {
   const { deleteDocument } = useFirestore("recipes");
-  const [avgRating, setAvgRating] = useState(0);
 
   const deleteHandler = (id) => {
     deleteDocument(id);
@@ -31,6 +30,20 @@ const RecipeList = ({ data }) => {
           </div>
           <p className="method">{recipe.method.substring(0, 100)}...</p>
           <p className="prep-time">{recipe.prepTime} mins to cook</p>
+          {recipe.comments.length !== 0 && (
+            <p className="rating">
+              {recipe.comments.reduce((acc, curr) => acc + curr.rating, 0) /
+                recipe.comments.length}
+              /5{" "}
+              <ReactStars
+                edit={false}
+                size={25}
+                isHalf={true}
+                disabled={true}
+                count={1}
+              />
+            </p>
+          )}
           <div className="button-holder">
             <Link to={`/recipes/${recipe.id}`} className="recipe-button">
               Cook this
