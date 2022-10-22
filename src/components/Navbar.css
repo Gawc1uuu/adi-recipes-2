@@ -7,12 +7,12 @@
   position: relative;
 }
 .navbar a.brand {
-  margin-right: auto;
   margin-left: 4rem;
   color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
+  flex-grow: 0.5;
   font-size: 16px;
   font-family: "Kaushan Script", cursive;
 }
@@ -86,6 +86,7 @@ span {
   justify-content: space-around;
   align-items: center;
   margin-right: 5rem;
+  margin-left: auto;
 }
 .auth-link {
   text-decoration: none;

@@ -10,6 +10,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Edit from "./pages/editpage/Edit";
 import Footer from "./components/Footer";
+import Search from "./pages/search/Search";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -37,10 +38,14 @@ function App() {
               path="/recipes/:id/edit"
               element={user ? <Edit /> : <Navigate to="/" />}
             />
+            <Route
+              path="/search"
+              element={user ? <Search /> : <Navigate to="/" />}
+            />
           </Routes>
+          <Footer />
         </BrowserRouter>
       )}
-      <Footer />
     </div>
   );
 }

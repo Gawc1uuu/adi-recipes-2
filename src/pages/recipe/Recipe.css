@@ -1,3 +1,6 @@
+.recipe-page-container {
+  min-height: 100vh;
+}
 .recipe {
   position: relative;
   max-width: 1000px;

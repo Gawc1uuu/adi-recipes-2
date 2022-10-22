@@ -9,6 +9,7 @@ import { useLogout } from "../hooks/useLogout";
 
 //styles
 import "./Navbar.css";
+import Searchbar from "./SearchBar";
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -33,6 +34,7 @@ const Navbar = () => {
             <img src={spaghetti} className="food-icon" alt="food icon" />
             <h1>Adi Cooking</h1>
           </Link>
+          <Searchbar />
           <div className="auth-links">
             {!user && (
               <>

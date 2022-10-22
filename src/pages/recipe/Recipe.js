@@ -25,15 +25,23 @@ const Recipe = () => {
   }, [document]);
 
   if (error) {
-    return <div className="error">{error}</div>;
+    return (
+      <div className="info-container">
+        <p className="error">{error}</p>
+      </div>
+    );
   }
 
   if (!document) {
-    return <div className="loading">Loading...</div>;
+    return (
+      <div className="info-container">
+        <p className="loading">Loading...</p>{" "}
+      </div>
+    );
   }
 
   return (
-    <>
+    <div className="recipe-page-container">
       <div className="recipe">
         {user && user.uid === document.createdBy.id && (
           <Link to={`/recipes/${id}/edit`}>
@@ -56,7 +64,7 @@ const Recipe = () => {
         <CommentsList recipe={document} />
         <CommentForm recipe={document} />
       </div>
-    </>
+    </div>
   );
 };
 
