@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 100px;
 }
 .single-recipe {
   background-color: rgb(255, 255, 255);

@@ -9,6 +9,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Edit from "./pages/editpage/Edit";
+import Footer from "./components/Footer";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -39,6 +40,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       )}
+      <Footer />
     </div>
   );
 }

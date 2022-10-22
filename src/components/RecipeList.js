@@ -20,15 +20,20 @@ const RecipeList = ({ data }) => {
         <div key={recipe.id} className="single-recipe">
           {recipe.comments.length !== 0 && (
             <div className="rating">
-              {recipe.comments.reduce((acc, curr) => acc + curr.rating, 0) /
-                recipe.comments.length}
-              /5{" "}
+              {(
+                recipe.comments.reduce((acc, curr) => {
+                  return acc + curr.rating;
+                }, 0) / recipe.comments.length
+              ).toFixed(1)}
+              /5.0{" "}
               <ReactStars
                 edit={false}
                 size={25}
                 isHalf={true}
                 disabled={true}
                 count={1}
+                activeColor="#ffd700"
+                value={1}
               />
             </div>
           )}
