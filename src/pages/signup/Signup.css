@@ -1,16 +1,17 @@
+.auth-page {
+  min-height: 100vh;
+  margin-top: 5%;
+}
 .auth-container {
-  max-width: 450px;
-  height: auto;
+  max-width: 500px;
   background-color: white;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
   margin-right: auto;
   margin-left: auto;
-  margin-top: 100px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
 }
 label {
   display: block;
@@ -37,8 +38,27 @@ input:focus {
   border: none;
   border-radius: 6px;
   margin-top: 20px;
+  padding: 10px;
 }
 .signup-button:hover {
   background-color: #330e1a;
   cursor: pointer;
+}
+.auth-container.dark {
+  max-width: 500px;
+  background-color: #555;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-container.dark h2 {
+  color: #dfe0e0;
+}
+.auth-container.dark input::placeholder {
+  color: #dfe0e0b9;
 }
