@@ -1,8 +1,35 @@
 .footer {
   width: 100%;
   margin-top: auto;
-  background-color: #c7c7c7;
+  background-color: #d6d6d6;
   border-top: 2px solid white;
   padding: 20px 30px;
   text-align: center;
+}
+.footer.dark {
+  width: 100%;
+  margin-top: auto;
+  background-color: #212121;
+  border-top: 2px solid white;
+  color: #c9c9c9;
+  padding: 20px 30px;
+  text-align: center;
+}
+.footer a {
+  text-decoration: none;
+  color: #212121;
+}
+.footer a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #212121;
+}
+.footer.dark a {
+  text-decoration: none;
+  color: #e2e2e2;
+}
+.footer.dark a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #e2e2e2;
 }

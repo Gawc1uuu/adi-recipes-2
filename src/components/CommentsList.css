@@ -28,3 +28,16 @@
 .comment-content {
   margin: 10px 0;
 }
+.comment.dark {
+  background-color: #555;
+}
+.comment.dark h5 {
+  font-weight: 500;
+  color: #dfe0e0;
+  font-size: 16px;
+}
+.comment.dark .comment-content {
+  font-weight: 500;
+  color: #c9c9c9;
+  font-size: 16px;
+}

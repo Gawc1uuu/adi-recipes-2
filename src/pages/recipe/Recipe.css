@@ -65,3 +65,25 @@
   margin-top: 50px;
   margin-bottom: 100px;
 }
+.recipe.dark {
+  background-color: #555;
+  color: #f1f3f5;
+}
+.recipe.dark h2 {
+  color: #f1f3f5;
+}
+.recipe.dark .method {
+  color: #c9c9c9;
+}
+.recipe.dark .ingredients {
+  color: #c9c9c9;
+}
+.recipe.dark .cooking-time {
+  color: #f1f3f5;
+}
+.recipe.dark .edit-icon {
+  filter: invert(90%);
+}
+.recipe.dark .edit-icon:hover {
+  filter: invert(50%);
+}

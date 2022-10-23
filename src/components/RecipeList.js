@@ -6,20 +6,23 @@ import ReactStars from "react-rating-stars-component";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFirestore } from "../hooks/useFirestore";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 const RecipeList = ({ data }) => {
   const { deleteDocument } = useFirestore("recipes");
+  const { mode } = useContext(ThemeContext);
 
   const deleteHandler = (id) => {
     deleteDocument(id);
   };
 
   return (
-    <div className="recipes-container">
+    <div className={`recipes-container ${mode}`}>
       {data.map((recipe) => (
-        <div key={recipe.id} className="single-recipe">
+        <div key={recipe.id} className={`single-recipe ${mode}`}>
           {recipe.comments.length !== 0 && (
-            <div className="rating">
+            <div className={`rating ${mode}`}>
               {(
                 recipe.comments.reduce((acc, curr) => {
                   return acc + curr.rating;
@@ -40,14 +43,14 @@ const RecipeList = ({ data }) => {
           <img
             src={deleteIcon}
             alt="bucket"
-            className="delete-icon"
+            className={`delete-icon ${mode}`}
             onClick={() => deleteHandler(recipe.id)}
           />
           <div className="header">
             <h2>{recipe.name}</h2>
             <em>Created by: {recipe.createdBy.userName}</em>
           </div>
-          <p className="method">{recipe.method.substring(0, 100)}...</p>
+          <p className="method">{recipe.method.substring(0, 80)}...</p>
           <p className="prep-time">{recipe.prepTime} mins to cook</p>
 
           <div className="button-holder">

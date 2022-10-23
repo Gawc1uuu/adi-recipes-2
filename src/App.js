@@ -11,14 +11,19 @@ import Navbar from "./components/Navbar";
 import Edit from "./pages/editpage/Edit";
 import Footer from "./components/Footer";
 import Search from "./pages/search/Search";
+import ThemeChange from "./components/ThemeChange";
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
+  const { mode } = useContext(ThemeContext);
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       {authIsReady && (
         <BrowserRouter>
           <Navbar />
+          <ThemeChange />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/recipes/:id" element={<Recipe />} />

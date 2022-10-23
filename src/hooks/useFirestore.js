@@ -89,7 +89,5 @@ export const useFirestore = (col) => {
     }
   };
 
-  console.log(state.error);
-
   return { addDocument, deleteDocument, updateDocument, ...state };
 };

@@ -103,6 +103,14 @@ span {
   border-radius: 6px;
   font-weight: bold;
 }
+.auth-button {
+  padding: 8px 16px;
+  color: #4c1626;
+  background-color: white;
+  border: 2px solid #4c1626;
+  border-radius: 6px;
+  font-weight: bold;
+}
 .auth-button:hover {
   background-color: rgb(203, 203, 203);
   cursor: pointer;

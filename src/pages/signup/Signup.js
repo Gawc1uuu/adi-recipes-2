@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 //styles
 import "./Signup.css";
 
 const Signup = () => {
+  const { mode } = useContext(ThemeContext);
+
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -36,46 +40,48 @@ const Signup = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Sign up</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            required
-            type="email"
-            placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          <input
-            required
-            type="text"
-            placeholder="username"
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </label>
-        <label>
-          <input
-            required
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <label>
-          <span>Add an avatar</span>
-          <input required type="file" onChange={handleFileChange} />
-        </label>
-        {isPending && (
-          <button className="signup-button" disabled={true}>
-            Signing up...
-          </button>
-        )}
-        {!isPending && <button className="signup-button">Sign up</button>}
-        {avatarError && <p className="error">{avatarError}</p>}
-        {error && <p className="error">{error}</p>}
-      </form>
+    <div className="auth-page">
+      <div className={`auth-container ${mode}`}>
+        <h2>Sign up</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              required
+              type="email"
+              placeholder="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            <input
+              required
+              type="text"
+              placeholder="username"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </label>
+          <label>
+            <input
+              required
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Add an avatar</span>
+            <input required type="file" onChange={handleFileChange} />
+          </label>
+          {isPending && (
+            <button className="signup-button" disabled={true}>
+              Signing up...
+            </button>
+          )}
+          {!isPending && <button className="signup-button">Sign up</button>}
+          {avatarError && <p className="error">{avatarError}</p>}
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };

@@ -8,8 +8,11 @@ import { arrayUnion, Timestamp } from "firebase/firestore";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useParams } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
+import { useContext } from "react";
 
 const CommentForm = () => {
+  const { mode } = useContext(ThemeContext);
   const { id } = useParams();
   const { user } = useAuthContext();
   const [commentText, setCommentText] = useState("");
@@ -62,7 +65,7 @@ const CommentForm = () => {
           onChange={(e) => setCommentText(e.target.value)}
         />
       </label>
-      <button className="auth-button">Add a comment</button>
+      <button className={`auth-button ${mode}`}>Add a comment</button>
     </form>
   );
 };

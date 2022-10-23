@@ -1,33 +1,25 @@
 //styles
 import "./Recipe.css";
 import editIcon from "../../assets/edit-icon.svg";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
-
-let ratingSum = 0;
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Recipe = () => {
+  const { mode } = useContext(ThemeContext);
   const { user } = useAuthContext();
   const { id } = useParams();
   const { document, error } = useDocument("recipes", id);
 
-  useEffect(() => {
-    if (document) {
-      document.comments.forEach((comment) => {
-        ratingSum += comment.rating;
-      });
-      console.log(ratingSum);
-    }
-  }, [document]);
-
   if (error) {
     return (
       <div className="info-container">
-        <p className="error">{error}</p>
+        <p className={`error ${mode}`}>{error}</p>
       </div>
     );
   }
@@ -35,14 +27,14 @@ const Recipe = () => {
   if (!document) {
     return (
       <div className="info-container">
-        <p className="loading">Loading...</p>{" "}
+        <p className={`loading ${mode}`}>Loading...</p>{" "}
       </div>
     );
   }
 
   return (
     <div className="recipe-page-container">
-      <div className="recipe">
+      <div className={`recipe ${mode}`}>
         {user && user.uid === document.createdBy.id && (
           <Link to={`/recipes/${id}/edit`}>
             <img src={editIcon} alt="edit icon" className="edit-icon" />

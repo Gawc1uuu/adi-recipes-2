@@ -1,10 +1,13 @@
 import React from "react";
+import { ThemeContext } from "../context/ThemeContext";
+import { useContext } from "react";
 //styles
 import "./Footer.css";
 
 const Footer = () => {
+  const { mode } = useContext(ThemeContext);
   return (
-    <div className="footer">
+    <div className={`footer ${mode}`}>
       <h4>Site made by Gawc1uuu</h4>
       <p>Check out more of my work: </p>
       <ul>

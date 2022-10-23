@@ -3,6 +3,41 @@
   margin: 0;
   padding: 0;
 }
+.App.dark {
+  background-color: #333;
+}
+.App.dark span {
+  color: #c9c9c9;
+}
+.App.dark p {
+  color: #cfd2d4;
+}
+.App.dark input,
+.App.dark textarea {
+  background-color: rgb(69, 69, 69);
+  color: #ededed;
+}
+.App.dark .searchbar input {
+  background-color: white;
+  color: black;
+}
+.App.dark h4 {
+  color: #cfd2d4;
+}
+.App.dark .auth-container input {
+  width: 100%;
+  font-size: 1rem;
+  margin: 15px 0;
+  height: 2rem;
+  outline: none;
+  border: none;
+  background-color: #555;
+  color: rgb(224, 224, 224);
+  border-bottom: 1px solid #333;
+}
+.App.dark .auth-container input:focus {
+  border-bottom: 2px solid black;
+}
 .home,
 .create {
   display: flex;
@@ -11,11 +46,6 @@
   justify-content: center;
   font-size: 3rem;
 }
-/* .App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
 .info-container {
   min-height: 100vh;
   margin-top: 100px;
