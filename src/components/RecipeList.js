@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 import { useFirestore } from "../hooks/useFirestore";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const RecipeList = ({ data }) => {
+  const { user } = useAuthContext();
   const { deleteDocument } = useFirestore("recipes");
   const { mode } = useContext(ThemeContext);
 
@@ -40,12 +42,15 @@ const RecipeList = ({ data }) => {
               />
             </div>
           )}
-          <img
-            src={deleteIcon}
-            alt="bucket"
-            className={`delete-icon ${mode}`}
-            onClick={() => deleteHandler(recipe.id)}
-          />
+          {user && user.uid === recipe.createdBy.id && (
+            <img
+              src={deleteIcon}
+              alt="bucket"
+              className={`delete-icon ${mode}`}
+              onClick={() => deleteHandler(recipe.id)}
+            />
+          )}
+
           <div className="header">
             <h2>{recipe.name}</h2>
             <em>Created by: {recipe.createdBy.userName}</em>

@@ -54,7 +54,8 @@ const Recipe = () => {
       </div>
       <div className="recipe-comments">
         <CommentsList recipe={document} />
-        <CommentForm recipe={document} />
+        {user && <CommentForm recipe={document} />}
+        {!user && <p>Log in to write comments!</p>}
       </div>
     </div>
   );

@@ -4,9 +4,14 @@ import { useCollection } from "../../hooks/useCollection";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const { data } = useCollection("recipes", ["createdAt", "desc"]);
+  const { data, isPending } = useCollection("recipes", ["createdAt", "desc"]);
 
-  return <>{data && <RecipeList data={data} />}</>;
+  return (
+    <>
+      {isPending && <p className="loading">Loading..</p>}
+      {data && <RecipeList data={data} />}
+    </>
+  );
 };
 
 export default Dashboard;

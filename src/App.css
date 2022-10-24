@@ -56,3 +56,19 @@
 .loading {
   text-align: center;
 }
+.error {
+  color: red;
+  background: pink;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+}
+.App.dark .error {
+  color: pink;
+  background: red;
+  border: 1px solid pink;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+}
