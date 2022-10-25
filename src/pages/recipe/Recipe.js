@@ -9,6 +9,7 @@ import CommentsList from "../../components/CommentsList";
 import CommentForm from "../../components/CommentForm";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { GridLoader } from "react-spinners";
 
 const Recipe = () => {
   const { mode } = useContext(ThemeContext);
@@ -27,7 +28,15 @@ const Recipe = () => {
   if (!document) {
     return (
       <div className="info-container">
-        <p className={`loading ${mode}`}>Loading...</p>{" "}
+        <p className={`loading ${mode}`}>
+          <GridLoader
+            color={`#999`}
+            loading={true}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </p>{" "}
       </div>
     );
   }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { ClipLoader } from "react-spinners";
 //styles
 import "../signup/Signup.css";
 
@@ -36,8 +37,14 @@ const Login = () => {
             />
           </label>
           {isPending && (
-            <button className="signup-button" disabled={true}>
-              Loging in...
+            <button className="signup-button" disabled>
+              <ClipLoader
+                color={"white"}
+                loading={isPending}
+                size={15}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
             </button>
           )}
           {!isPending && <button className="signup-button">Login</button>}

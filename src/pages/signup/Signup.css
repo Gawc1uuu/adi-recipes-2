@@ -62,3 +62,15 @@ input:focus {
 .auth-container.dark input::placeholder {
   color: #dfe0e0b9;
 }
+.signup-button:disabled {
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4c162677;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 10px;
+  cursor: default;
+}
