@@ -1,1 +1,1 @@
-<h1>I'm currently working on this project :wrench: :hammer: ..</h1>
+<h1>It's now available at https://adi-recipes-2.web.app/ .</h1>
